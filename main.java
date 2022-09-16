@@ -16,12 +16,21 @@ class Project{
         //Patient.delete_patient(lst, 3);
         //Patient.print_Data(lst);
 
-
+/* 
         //Create Method by khaled
-        //Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
+        Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
+        Doctor.init_object_of_Doctor(2,"jasem","jasem@gmail.com",25,"engenner");
         //Read Method by khaled
-        //Doctor.get_print_data(lst);
-
+        Doctor.get_print_data(lst_doc);
+        //Update Method by khaled
+        Doctor.update_Doctor_data(lst_doc, 1, "khlef", "khlef@gmail.com", 65, "teacher");
+        // after update
+        Doctor.get_print_data(lst_doc);
+        //Delete Method by khaled
+        Doctor.delete_Doctor(lst_doc, 1);
+        // after delete
+        Doctor.get_print_data(lst_doc);
+        */
 
     }
 }
@@ -178,6 +187,24 @@ class Doctor{
     public static void get_print_data(ArrayList<Doctor> lst){
         for (Doctor d : lst) {
             d.get_all_data();
+        }
+    }
+    public static void update_Doctor_data(ArrayList<Doctor> lst , int id ,String name,String email,int age,String type){
+        for (Doctor d : lst) {
+            if(d.get_id() == id){
+                d.set_name(name);
+                d.set_email(email);
+                d.set_age(age);
+            }
+            
+        }
+
+    }
+    public static void delete_Doctor(ArrayList<Doctor> lst, int id){ 
+        for (Doctor d : lst) {
+            if(d.get_id() == id){
+                lst.remove(d);
+            }
         }
     }
 }
