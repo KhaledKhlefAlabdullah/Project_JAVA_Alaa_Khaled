@@ -1,6 +1,6 @@
 class Project{
     public static void main(String[] args) {
-
+        
     }
 }
 
@@ -111,5 +111,4 @@ class Doctor{
     public String get_type(){
         return this.type;
     }
- 
 }
