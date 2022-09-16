@@ -2,9 +2,9 @@ import java.util.ArrayList;
 class Project{
     static ArrayList<Doctor> lst=new ArrayList<>();
     public static void main(String[] args) {
-        //Create Method
+        //Create Method by khaled
         //Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
-        //Read Method
+        //Read Method by khaled
         //Doctor.get_print_data(lst);
     }
 }
