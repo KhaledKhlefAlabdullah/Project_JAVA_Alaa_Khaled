@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 class Project{
     static ArrayList<Patient> lst = new ArrayList<>();
+    static ArrayList<Doctor> lst_doc = new ArrayList<>();
     public static void main(String[] args) {
         //** Create Function **
         //Patient.create_patieant_object(1, "Alaa", "jj@gmail.com", 28);
@@ -9,6 +10,10 @@ class Project{
         
         //** Read Function **
         //Patient.print_Data(lst);
+        //Create Method by khaled
+        //Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
+        //Read Method by khaled
+        //Doctor.get_print_data(lst);
 
 
     }
@@ -131,5 +136,22 @@ class Doctor{
     }
     public String get_type(){
         return this.type;
+    }
+    public static void init_object_of_Doctor(int id,String name,String email,int age,String type){
+        Doctor d1=new Doctor(id,name,email,age,type);
+        Project.lst_doc.add(d1);
+    }
+    public void get_all_data(){
+        int id=get_id();
+        String name=get_name();
+        String email=get_email();
+        int age=get_age();
+        String type=get_type();
+        System.out.println("{ Id: "+id+", Name: "+name+", Email: "+email+", Age: "+age+", Type: "+type+" }");
+    }
+    public static void get_print_data(ArrayList<Doctor> lst){
+        for (Doctor d : lst) {
+            d.get_all_data();
+        }
     }
 }
