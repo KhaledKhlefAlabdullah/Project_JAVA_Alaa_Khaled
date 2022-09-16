@@ -1,6 +1,16 @@
+import java.util.ArrayList;
+
 class Project{
+    static ArrayList<Patient> lst = new ArrayList<>();
     public static void main(String[] args) {
+        //** Create Function **
+        //Patient.create_patieant_object(1, "Alaa", "jj@gmail.com", 28);
+        //Patient.create_patieant_object(2, "Ahmad", "jwfj@gmaiwfwfl.com", 98);
         
+        //** Read Function **
+        //Patient.print_Data(lst);
+
+
     }
 }
 
@@ -20,7 +30,7 @@ class Patient{
         if(Email.length()>5 && Email.contains("@")){ 
             this.Email =Email;
         }
-        if(Age >1900 && Age < 2022){ 
+        if(Age >0 && Age < 100){ 
             this.Age = Age;
         }
     }
@@ -52,9 +62,20 @@ class Patient{
         return this.Age;
     }
     public void set_Age(int Age){ 
-        if(Email.length()>5 && Email.contains("@")){ 
+        if(Age >0 && Age < 100){ 
             this.Age = Age;
         }
+    }
+
+    public static void create_patieant_object(int Id,String Name,String Email,int Age){ 
+        Patient p = new Patient(Id, Name, Email, Age);
+        Project.lst.add(p);
+    }
+    public static void print_Data(ArrayList<Patient> lst){ 
+        for (Patient object : lst) {
+            System.out.println("Id :"+object.Id+" - "+"Name :"+object.Name+" - "+"Email :"+object.Email+" - "+"Age :"+object.Age);
+        }
+
     }
 }
 
