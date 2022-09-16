@@ -7,9 +7,16 @@ class Project{
         //** Create Function **
         //Patient.create_patieant_object(1, "Alaa", "jj@gmail.com", 28);
         //Patient.create_patieant_object(2, "Ahmad", "jwfj@gmaiwfwfl.com", 98);
-        
+        //Patient.create_patieant_object(3, "aaaaa", "jwfj@gmaaaaaaiwfwfl.com", 22);
+        //** Update Function **
+        //Patient.update_patient(lst, 1, "Omar", "ggg@dd.com," ,30);
         //** Read Function **
         //Patient.print_Data(lst);
+        //** Delete Function **
+        //Patient.delete_patient(lst, 3);
+        //Patient.print_Data(lst);
+
+
         //Create Method by khaled
         //Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
         //Read Method by khaled
@@ -81,6 +88,25 @@ class Patient{
             System.out.println("Id :"+object.Id+" - "+"Name :"+object.Name+" - "+"Email :"+object.Email+" - "+"Age :"+object.Age);
         }
 
+    }
+
+    public static void update_patient(ArrayList<Patient> lst , int id ,String Name,String Email,int Age){
+        for (Patient o : lst) {
+            if(o.Id == id){
+                o.set_name(Name);
+                o.set_email(Email);
+                o.set_Age(Age);
+            }
+            
+        }
+
+    }
+    public static void delete_patient(ArrayList<Patient> lst, int Id){ 
+        for (Patient o : lst) {
+            if(o.Id == Id){
+                lst.remove(o);
+            }
+        }
     }
 }
 
