@@ -7,15 +7,22 @@ class Project{
         //** Create Function **
         //Patient.create_patieant_object(1, "Alaa", "jj@gmail.com", 28);
         //Patient.create_patieant_object(2, "Ahmad", "jwfj@gmaiwfwfl.com", 98);
-        
         //** Read Function **
         //Patient.print_Data(lst);
+
+        /* 
         //Create Method by khaled
-        //Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
+        Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
+        Doctor.init_object_of_Doctor(2,"khlef","khlefjd@gmail.com",65,"doctor");
         //Read Method by khaled
-        //Doctor.get_print_data(lst);
-
-
+        Doctor.get_print_data(lst_doc);
+        // Update Method by khaled
+        Doctor.update_Doctor_data(lst_doc, 1, "mohamad", "mohamad@gmail.com", 25, "teacher");
+        //Delete Method by khaled
+        Doctor.delete_Doctor_data(lst_doc, 2);
+        System.out.println("After delete");
+        Doctor.get_print_data(lst_doc);
+        */
     }
 }
 
@@ -153,5 +160,26 @@ class Doctor{
         for (Doctor d : lst) {
             d.get_all_data();
         }
+    }
+    public static void update_Doctor_data(ArrayList<Doctor> lst, int id,String name,String email,int age,String type){
+        for (Doctor d : lst) {
+            if(d.get_id()==id){
+                d.set_name(name);
+                d.set_email(email);
+                d.set_age(age);
+                d.set_type(type);
+            }
+            else{
+                System.out.println("this id is not exist");
+            }
+        }
+    }
+    public static void delete_Doctor_data(ArrayList<Doctor> lst, int id){
+        for (Doctor d : lst) {
+            if(d.get_id()==id){
+                lst.remove(d);
+             }
+            }
+
     }
 }
