@@ -35,6 +35,9 @@ class Project{
     }
 }
 
+class Session{
+    
+}
 class Patient{ 
     private int Id;
     private String Name;
