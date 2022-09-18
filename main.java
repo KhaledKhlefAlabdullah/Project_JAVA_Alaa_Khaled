@@ -36,7 +36,29 @@ class Project{
 }
 
 class Session{
-    
+   private int id; 
+   private String date;
+   private int number_of_reviews;
+   private int price;
+   private ArrayList<Patient> pattient_list;
+   private ArrayList<Doctor> doctor_list;
+   public Session(int id,String date,int number_of_reviews,int price, ArrayList<Patient> p_list,ArrayList<Doctor> d_list){
+        if(id>0){
+            this.id=id;
+        }
+        if(date.contains(" / / ")){
+            this.date=date;
+        }
+        if(number_of_reviews>0){
+            this.number_of_reviews=number_of_reviews;
+        }
+        if(price>0){
+            this.price=price;
+        }
+        pattient_list=p_list;
+        doctor_list=d_list;
+   }
+
 }
 class Patient{ 
     private int Id;
