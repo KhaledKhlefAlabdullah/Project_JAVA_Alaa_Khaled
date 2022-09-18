@@ -36,7 +36,60 @@ class Project{
 }
 
 class Session{
-    
+   private int id; 
+   private String date;
+   private int number_of_reviews;
+   private int price;
+   public ArrayList<Patient> pattient_list;
+   public ArrayList<Doctor> doctor_list;
+   public Session(int id,String date,int number_of_reviews,int price, ArrayList<Patient> p_list,ArrayList<Doctor> d_list){
+        if(id>0){
+            this.id=id;
+        }
+        if(date.contains(" / / ")){
+            this.date=date;
+        }
+        if(number_of_reviews>0){
+            this.number_of_reviews=number_of_reviews;
+        }
+        if(price>0){
+            this.price=price;
+        }
+        pattient_list=p_list;
+        doctor_list=d_list;
+   }
+   public void set_id(int id){
+        if(id>0){
+            this.id=id;
+        }
+   }
+   public int get_id(){
+    return this.id;
+   }
+   public void set_date(String date){
+        if(date.contains(" / / ")){
+            this.date=date;
+        }
+    }
+    public String get_date(){
+        return this.date;
+    }
+    public void set_number_of_reviews(int number_of_reviews){
+        if(number_of_reviews>0){
+            this.number_of_reviews=number_of_reviews;
+        }
+    }
+    public int get_number_of_reviews(){
+        return this.number_of_reviews;
+    }
+    public void set_price(int price){
+        if(price>0){
+            this.price=price;
+        }
+    }
+    public int get_price(){
+        return this.price;
+    }
 }
 class Patient{ 
     private int Id;
