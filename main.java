@@ -1,37 +1,45 @@
 import java.util.ArrayList;
 
 class Project{
-    static ArrayList<Patient> lst = new ArrayList<>();
+    static ArrayList<Patient> lst_pat = new ArrayList<>();
     static ArrayList<Doctor> lst_doc = new ArrayList<>();
-    public static void main(String[] args) {
+    static ArrayList<Session> lst_session = new ArrayList<>();
+     public static void main(String[] args) {
         //** Create Function **
-        //Patient.create_patieant_object(1, "Alaa", "jj@gmail.com", 28);
-        //Patient.create_patieant_object(2, "Ahmad", "jwfj@gmaiwfwfl.com", 98);
-        //Patient.create_patieant_object(3, "aaaaa", "jwfj@gmaaaaaaiwfwfl.com", 22);
+        Patient.create_patieant_object(1, "Alaa", "jj@gmail.com", 28);
+        Patient.create_patieant_object(2, "Ahmad", "jwfj@gmaiwfwfl.com", 98);
+        Patient.create_patieant_object(3, "aaaaa", "jwfj@gmaaaaaaiwfwfl.com", 22);
         //** Update Function **
-        //Patient.update_patient(lst, 1, "Omar", "ggg@dd.com," ,30);
+        //Patient.update_patient(lst_pat, 1, "Omar", "ggg@dd.com," ,30);
         //** Read Function **
-        //Patient.print_Data(lst);
+        //Patient.print_Data(lst_pat);
         //** Delete Function **
-        //Patient.delete_patient(lst, 3);
-        //Patient.print_Data(lst);
+        //Patient.delete_patient(lst_pat, 3);
+        //Patient.print_Data(lst_pat);
 
-/* 
+
         //Create Method by khaled
         Doctor.init_object_of_Doctor(1,"khaled","khaled@gmail.com",20,"brogramar");
         Doctor.init_object_of_Doctor(2,"jasem","jasem@gmail.com",25,"engenner");
         //Read Method by khaled
-        Doctor.get_print_data(lst_doc);
+        //Doctor.get_print_data(lst_doc);
         //Update Method by khaled
-        Doctor.update_Doctor_data(lst_doc, 1, "khlef", "khlef@gmail.com", 65, "teacher");
+        //Doctor.update_Doctor_data(lst_doc, 1, "khlef", "khlef@gmail.com", 65, "teacher");
         // after update
-        Doctor.get_print_data(lst_doc);
+        //Doctor.get_print_data(lst_doc);
         //Delete Method by khaled
-        Doctor.delete_Doctor(lst_doc, 1);
+        //Doctor.delete_Doctor(lst_doc, 1);
         // after delete
-        Doctor.get_print_data(lst_doc);
-        */
+        //Doctor.get_print_data(lst_doc);
+        
 
+/* 
+        Session.create_session_object(1, "2022/08/25", 10, 200, lst_pat, lst_doc);
+        Session.create_session_object(2, "2022/09/25", 22, 333, lst_pat, lst_doc);
+        Session.update_patient(lst_session, 1, "2022/10/30", 5, 100, lst_pat, lst_doc);
+        Session.print_Data_session(lst_session);
+
+*/
     }
 }
 
@@ -46,7 +54,7 @@ class Session{
         if(id>0){
             this.id=id;
         }
-        if(date.contains(" / / ")){
+        if(date.contains("/")){
             this.date=date;
         }
         if(number_of_reviews>0){
@@ -67,7 +75,7 @@ class Session{
     return this.id;
    }
    public void set_date(String date){
-        if(date.contains(" / / ")){
+        if(date.contains("/")){
             this.date=date;
         }
     }
@@ -90,6 +98,46 @@ class Session{
     public int get_price(){
         return this.price;
     }
+
+    public static void create_session_object(int Id,String Date,int Nor,int Price,ArrayList<Patient> lst_patient,ArrayList<Doctor> lst_doctor){ 
+        Session s = new Session(Id, Date, Nor, Price,lst_patient,lst_doctor);
+        Project.lst_session.add(s);
+    } 
+
+    public static void print_Data_session(ArrayList<Session> lst){ 
+        for (Session object : lst) {
+            System.out.println("Id :"+object.id+" - "+"Date :"+object.date+" - "+"Number of reviews :"+object.number_of_reviews+" - "+"Price :"+object.price);
+            Patient.print_Data(object.pattient_list);
+            Doctor.get_print_data(object.doctor_list);
+        }
+
+
+
+    }
+
+    public static void update_patient(ArrayList<Session> lst,int id,String date,int number_of_reviews,int price, ArrayList<Patient> p_list,ArrayList<Doctor> d_list){
+        for (Session o : lst) {
+            if(o.id == id){
+                o.set_date(date);
+                o.set_number_of_reviews(number_of_reviews);
+                o.set_price(price);
+                o.pattient_list = p_list;
+                o.doctor_list = d_list;
+
+            }
+            
+        }
+
+    }
+    public static void delete_patient(ArrayList<Session> lst, int Id){ 
+        for (Session o : lst) {
+            if(o.id == Id){
+                lst.remove(o);
+            }
+        }
+    }
+
+
 }
 class Patient{ 
     private int Id;
@@ -146,7 +194,7 @@ class Patient{
 
     public static void create_patieant_object(int Id,String Name,String Email,int Age){ 
         Patient p = new Patient(Id, Name, Email, Age);
-        Project.lst.add(p);
+        Project.lst_pat.add(p);
     }
     public static void print_Data(ArrayList<Patient> lst){ 
         for (Patient object : lst) {
